@@ -12,7 +12,16 @@ export default function App() {
   const [name, setName] = useState('');
   return (
     <SafeAreaView style={styles.container}>
-      <TextInput style={styles.input} value={name} onChangeText={setName} />
+      <TextInput
+        style={styles.input}
+        value={name}
+        placeholder="email@example.com"
+        onChangeText={setName}
+        autoCorrect={false}
+        autoCapitalize="none"
+        // secureTextEntry
+        // keyboardType="numeric"
+      />
       <Text style={styles.text}>My name is {name}</Text>
     </SafeAreaView>
   );
