@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TextInput,
   Switch,
+  Button,
 } from 'react-native';
 
 export default function App() {
@@ -14,58 +15,55 @@ export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={name}
-        placeholder="email@example.com"
-        onChangeText={setName}
-        autoCorrect={false}
-        autoCapitalize="none"
-        // secureTextEntry
-        // keyboardType="numeric"
-      />
-      <TextInput
-        style={[styles.input, styles.multilineTextInput]}
-        placeholder="message"
-        multiline
-      />
-
-      <Text style={styles.text}>My name is {name}</Text>
-
-      <View style={styles.switchContainer}>
-        <Text style={styles.text}>Dark Mode</Text>
-        <Switch
-          value={isDarkMode}
-          onValueChange={() => setIsDarkMode((prev) => !prev)}
-          trackColor={{ false: '#767577', true: '#81b0ff' }}
-          thumbColor="#f4f3f4"
-        />
+    <View style={styles.container}>
+      <View style={styles.form}>
+        <Text style={styles.label}>Username</Text>
+        <TextInput style={styles.input} placeholder="Enter your username" />
+        <Text style={styles.label}>Password</Text>
+        <TextInput style={styles.input} placeholder="Enter your password" secureTextEntry />
+        <Button title="Log in" onPress={() => {}}></Button>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: StatusBar.currentHeight,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+    paddingHorizontal: 50,
   },
-  input: {
-    height: 40,
-    margin: 12,
-    padding: 10,
-    borderWidth: 2,
-    width: 400,
+  form: {
+    backgroundColor: 'white',
+    paddingHorizontal: 50,
+    paddingVertical: 50,
+    borderRadius: 10,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 3,
+    width: '70%',
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
   },
   text: {
     fontSize: 24,
     textAlign: 'center',
+    fontWeight: '300',
   },
-  multilineTextInput: {
-    minHeight: 100,
-    textAlignVertical: 'top',
+  input: {
+    height: 40,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 15,
+    paddingVertical: 10,
   },
   switchContainer: {
     flexDirection: 'row',
