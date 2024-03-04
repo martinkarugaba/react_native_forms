@@ -1,26 +1,28 @@
 import { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  SafeAreaView,
-  TextInput,
-  Switch,
-  Button,
-} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState('');
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState(false);
 
   return (
     <View style={styles.container}>
       <View style={styles.form}>
         <Text style={styles.label}>Username</Text>
-        <TextInput style={styles.input} placeholder="Enter your username" />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your username"
+          value={username}
+          onChangeText={setUsername}
+        />
         <Text style={styles.label}>Password</Text>
-        <TextInput style={styles.input} placeholder="Enter your password" secureTextEntry />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
         <Button title="Log in" onPress={() => {}}></Button>
       </View>
     </View>
